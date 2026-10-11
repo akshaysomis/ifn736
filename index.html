@@ -306,7 +306,7 @@
   footer{ margin-top:56px; padding-top:22px; }
   .filetable{ width:100%; border-collapse:collapse; font-size:13px; }
   .filetable th{ text-align:left; font-family:"Roboto Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-lo); font-weight:600; padding:8px 10px; border-bottom:1px solid var(--border); }
-  .filetable td{ padding:9px 10px; border-bottom:1px solid var(--border); color:var(--text-hi); }
+  .filetable td{ padding:9px 10px; color:var(--text-hi); }
   .filetable td.file{ font-family:"Roboto Mono",monospace; font-size:12px; }
   .filetable td.num{ text-align:right; font-family:"Roboto Mono",monospace; color:var(--text-lo); }
   .filetable tr.pending td{ color:var(--text-lo); font-style:italic; }
@@ -473,8 +473,39 @@
     </div>
   </section>
 
+  <!-- ===================== FOLLOW-UP: P2 REWORDING ===================== -->
+  <section id="sec-followup">
+    <div class="section-head">
+      <h2>Follow-up: does rewording P2 help further?</h2>
+      <span class="hint">4 runs, Elle only, same 19 conversations on both pages · secondary test — not part of the 4-person study above</span>
+    </div>
+    <div class="card">
+      <div class="sig-note">
+        <span>⚠</span>
+        <span><b>Not statistically significant.</b> The restructured version matched or slightly exceeded the original — it did not clearly outperform it. Treat this as inconclusive, not as evidence that rewording alone improves visibility.</span>
+      </div>
+      <p style="margin:0 0 16px; font-size:13px; line-height:1.6; color:var(--text-lo);">
+        <b>P2 restructured</b> keeps P2's same 8 FAQ topics and facts — no claims added or removed — rewritten answer-first, with real <code>&lt;h3&gt;</code> question headings. Live at
+        <a href="mockups/06_p2_faq_only_v3_restructured.html" target="_blank" rel="noopener">mockups/06_p2_faq_only_v3_restructured.html ↗</a> (listed as <b>P2.1</b> on the <a href="mockups/" target="_blank" rel="noopener">Mockup Sites page</a>).
+      </p>
+      <div style="overflow-x:auto;">
+        <table class="filetable">
+          <thead><tr><th>Run</th><th style="text-align:right">P2</th><th style="text-align:right">P2 restructured</th><th style="text-align:right">P2 restructured − P2</th><th style="text-align:right">Fisher p</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="num">38.3%</td><td class="num">43.3%</td><td class="num">+5.0</td><td class="num">0.71</td></tr>
+            <tr><td>2</td><td class="num">41.7%</td><td class="num">36.7%</td><td class="num">−5.0</td><td class="num">0.71</td></tr>
+            <tr><td>3</td><td class="num">31.7%</td><td class="num">45.0%</td><td class="num">+13.3</td><td class="num">0.19</td></tr>
+            <tr><td>4</td><td class="num">40.0%</td><td class="num">43.3%</td><td class="num">+3.3</td><td class="num">0.85</td></tr>
+            <tr class="emphasis"><td>Pooled (n=240/page)</td><td class="num">37.9%</td><td class="num">42.1%</td><td class="num">+4.2</td><td class="num">0.40</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-footnote">Paired by conversation × turn: P2 restructured-only 34, P2-only 24 (McNemar p=0.24). By conversation: P2 restructured ahead in 10, behind in 7, tied in 2 (p=0.17). Judge-scored rubric metrics were equal within 0.1 between the two pages except Relevance (P2 restructured 2.45 vs P2 2.55, p=0.32) — unverified Gemini self-scores, same caveat as elsewhere on this page. Run 3 drives most of the gap — without it, the pooled difference is about +1pt — and identical pages swung from −5 to +13 points between runs, run-to-run noise on the same scale as the measured effect. The same 19 conversations were reused across all 4 runs, so these p-values are somewhat optimistic, same limitation as the main study above.</p>
+    </div>
+  </section>
+
   <!-- ===================== SYNTHESIS ===================== -->
-  <section id="sec-synthesis">
+  <section id="sec-synthesis" class="section-group-start">
     <div class="section-head"><h2>Key takeaways</h2></div>
     <div class="synth-grid">
       <div class="synth-card">
@@ -526,6 +557,7 @@
     <li><a href="#sec-journey" data-target="sec-journey">Journey stage &amp; competitors</a></li>
     <li><a href="#sec-pooled" data-target="sec-pooled">Pooled significance</a></li>
     <li><a href="#sec-leaderboard" data-target="sec-leaderboard">Run-by-run consistency</a></li>
+    <li><a href="#sec-followup" data-target="sec-followup">Follow-up: P2 rewording</a></li>
     <li><a href="#sec-synthesis" data-target="sec-synthesis">Key takeaways</a></li>
     <li><a href="#sec-recommendations" data-target="sec-recommendations">Recommendations</a></li>
     <li><a href="#sec-limitations" data-target="sec-limitations">Limitations & caveats</a></li>
