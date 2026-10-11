@@ -1,14 +1,39 @@
 # GEO Phase 2 Prototype
 
-Static site for the GEO Phase 2 prototype (IFN736, Group 22). Deployed on GitHub Pages.
+Static site for the GEO Phase 2 prototype (IFN736, Group 22). Deployed on GitHub Pages at
+**https://elllllllle.github.io/ifn736-geo-project/**
 
-- `/` — findings dashboard (V1 recall vs V2 search-grounded vs V3 content-injected)
-- `/chat/` — interactive chat demo — ask a travel question, compare Baseline vs Optimised (content-injected) responses from Gemini, with live Inclusion Rate / Ranking Position / rubric-score metrics per turn
-- `/mockups/` — the 9 Flight Centre GEO mockup site variants used for V3 testing (an Incremental Comparison Ladder + Isolated Technique Variants), with a directory page linking to each
+- `/` — findings dashboard, grouped into three parts: **Part 1 — The Results** (headline mention
+  rates, journey stage & competitors), **Part 2 — The Evidence** (pooled significance, run-by-run
+  consistency across 4 team members, and a follow-up test on whether rewording the P2 FAQ-only
+  page moves the needle further), **Part 3 — What It Means** (key takeaways, recommendations,
+  limitations & caveats)
+- `/chat/` — interactive chat demo — ask a travel question, compare Baseline vs Optimised
+  (content-injected) responses from Gemini, with live Inclusion Rate / Ranking Position /
+  rubric-score metrics per turn
+- `/mockups/` — the 10 Flight Centre GEO mockup site variants used for V3 testing: an Incremental
+  Comparison Ladder (Site A → V1 → V2 → Site B → V4) plus Isolated Technique Variants (P2, the
+  restructured P2.1, P3, P4, P5), with a directory page linking to each
+- `/queries/` — the 19 multi-turn test conversations run against every page variant, grounded in
+  Flight Centre's Customer Persona Book and mapped to the Dream → Plan → Engage → Book (→ Pre-trip)
+  journey
 
-## Deploying to GitHub Pages
+## Updating the live site
 
-From this folder:
+The repo is already set up and deployed — from this folder, committing and pushing to `main`
+updates the live site within a minute or two:
+
+```bash
+git add -A
+git commit -m "..."
+git push origin main
+```
+
+GitHub Pages is configured under **Settings → Pages → Build and deployment → Source: Deploy from
+a branch → Branch: main / (root)**.
+
+<details>
+<summary>First-time setup (already done for this repo — kept for reference)</summary>
 
 ```bash
 git init
@@ -19,9 +44,12 @@ git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
 
-Then on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: main / (root)**.
+Then on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch →
+Branch: main / (root)**. The site goes live at `https://<your-username>.github.io/<repo-name>/`
+within a minute or two — dashboard at the root URL, chat demo at `/chat/`, mockup sites at
+`/mockups/`, query set at `/queries/`.
 
-The site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two — dashboard at the root URL, chat demo at `/chat/`, mockup sites at `/mockups/`.
+</details>
 
 ## About the chat demo's API key
 
