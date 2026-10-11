@@ -76,6 +76,11 @@
     font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
     color:var(--text-lo);
   }
+  .group-eyebrow{
+    font-family:"Roboto Mono", ui-monospace, monospace;
+    font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:12px;
+  }
   h1,h2,h3{ text-wrap:balance; margin:0; }
   .num{ font-variant-numeric:tabular-nums; font-family:"Roboto Mono", ui-monospace, monospace; }
 
@@ -347,6 +352,12 @@
   }
   .page-anchor a:hover{ color:var(--text-hi); }
   .page-anchor a.active{ color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+  .page-anchor li.anchor-group{
+    padding:14px 0 4px 14px; font-family:"Roboto Mono", ui-monospace, monospace;
+    font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-lo); opacity:.7;
+  }
+  .page-anchor li.anchor-group:first-child{ padding-top:0; }
   .site-nav-link{
     font-family:"Roboto Mono", ui-monospace, monospace; font-size:12px; font-weight:600;
     letter-spacing:.04em; text-decoration:none; color:var(--text-lo);
@@ -391,6 +402,7 @@
 
   <!-- ===================== HEADLINE BOARD ===================== -->
   <section id="sec-headline">
+    <div class="group-eyebrow">Part 1 — The Results</div>
     <div class="section-head">
       <h2>Headline results</h2>
       <span class="hint">Flight Centre mention rate — % of turns where Flight&nbsp;Centre is named organically</span>
@@ -431,6 +443,7 @@
 
   <!-- ===================== POOLED SIGNIFICANCE ===================== -->
   <section id="sec-pooled" class="section-group-start">
+    <div class="group-eyebrow">Part 2 — The Evidence</div>
     <div class="section-head">
       <h2>Pooled significance</h2>
       <span class="hint">Pooled across all 4 runs · Fisher's exact test on combined counts (n=240 per variant, excl. Book turn)</span>
@@ -506,6 +519,7 @@
 
   <!-- ===================== SYNTHESIS ===================== -->
   <section id="sec-synthesis" class="section-group-start">
+    <div class="group-eyebrow">Part 3 — What It Means</div>
     <div class="section-head"><h2>Key takeaways</h2></div>
     <div class="synth-grid">
       <div class="synth-card">
@@ -553,11 +567,14 @@
 <nav class="page-anchor" id="pageAnchor" aria-label="Section navigation">
   <div class="anchor-title">On this page</div>
   <ul>
+    <li class="anchor-group">Part 1 — The Results</li>
     <li><a href="#sec-headline" data-target="sec-headline">Headline results</a></li>
     <li><a href="#sec-journey" data-target="sec-journey">Journey stage &amp; competitors</a></li>
+    <li class="anchor-group">Part 2 — The Evidence</li>
     <li><a href="#sec-pooled" data-target="sec-pooled">Pooled significance</a></li>
     <li><a href="#sec-leaderboard" data-target="sec-leaderboard">Run-by-run consistency</a></li>
     <li><a href="#sec-followup" data-target="sec-followup">Follow-up: P2 rewording</a></li>
+    <li class="anchor-group">Part 3 — What It Means</li>
     <li><a href="#sec-synthesis" data-target="sec-synthesis">Key takeaways</a></li>
     <li><a href="#sec-recommendations" data-target="sec-recommendations">Recommendations</a></li>
     <li><a href="#sec-limitations" data-target="sec-limitations">Limitations & caveats</a></li>
