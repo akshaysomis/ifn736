@@ -615,8 +615,8 @@
   // in the top two (excl. baseline) on THAT run's own rate. `pooled` combines all runs so far into
   // one n=2133 Fisher's-exact test and is shown as smaller, secondary text under the variant name —
   // see the sig-note and Limitations for why we lead with per-run agreement instead of that pooled
-  // figure: Run 1 (Elle) and Run 3 (Akshay) share a 20k-char extraction depth and still disagree
-  // sharply (V4, Site B), and Run 2 (Yuva) additionally differs in extraction depth (8k), so no pair
+  // figure: Run 1 (Elle) and Run 2 (Akshay) share a 20k-char extraction depth and still disagree
+  // sharply (V4, Site B), and Run 4 (Yuva) additionally differs in extraction depth (8k), so no pair
   // of runs here can be assumed interchangeable draws from the same distribution.
   var MOCKUP_BASE = 'mockups/';
   var RUNS_SO_FAR = 4;
@@ -723,9 +723,9 @@
     ['V1 — Baseline', 'multi_turn_query19_results.csv', '79'],
     ['V2 — Search-Grounded (manual)', 'Manual_Grounded_Test_Template_scored.xlsx', '79'],
     ['V3 — Content-Injected (ProCat, Run 1 — Elle, 20k-char extraction, 16 Sep 2026)', 'elle_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 2 — Yuva, 8k-char extraction, 15 Sep 2026)', 'yuva_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 3 — Akshay, 20k-char extraction, 16 Sep 2026)', 'akshay_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 4 — Matthew, 20k-char extraction, 15–17 Sep 2026)', 'matthew_multi_turn_query19_injection_results_procat.csv', '711']
+    ['V3 — Content-Injected (ProCat, Run 2 — Akshay, 20k-char extraction, 16 Sep 2026)', 'akshay_multi_turn_query19_injection_results_procat.csv', '711'],
+    ['V3 — Content-Injected (ProCat, Run 3 — Matthew, 20k-char extraction, 15–17 Sep 2026)', 'matthew_multi_turn_query19_injection_results_procat.csv', '711'],
+    ['V3 — Content-Injected (ProCat, Run 4 — Yuva, 8k-char extraction, 15 Sep 2026)', 'yuva_multi_turn_query19_injection_results_procat.csv', '711']
   ];
   var pendingFiles = [];
 
@@ -815,9 +815,9 @@
   cmpHead.innerHTML =
     '<div class="sortable" data-sort-key="_reset" title="Click to reset to build order">Variant</div>'+
     '<div class="sortable" data-sort-key="elle" title="Click to sort by Elle\'s rate">Run 1 · Elle<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">20k-char extraction</span><span class="sort-arrow" data-arrow-for="elle"></span></div>'+
-    '<div class="sortable" data-sort-key="yuva" title="Click to sort by Yuva\'s rate">Run 2 · Yuva<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">8k-char extraction</span><span class="sort-arrow" data-arrow-for="yuva"></span></div>'+
-    '<div class="sortable" data-sort-key="akshay" title="Click to sort by Akshay\'s rate">Run 3 · Akshay<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">20k-char extraction</span><span class="sort-arrow" data-arrow-for="akshay"></span></div>'+
-    '<div class="sortable" data-sort-key="matthew" title="Click to sort by Matthew\'s rate">Run 4 · Matthew<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">20k-char extraction</span><span class="sort-arrow" data-arrow-for="matthew"></span></div>'+
+    '<div class="sortable" data-sort-key="akshay" title="Click to sort by Akshay\'s rate">Run 2 · Akshay<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">20k-char extraction</span><span class="sort-arrow" data-arrow-for="akshay"></span></div>'+
+    '<div class="sortable" data-sort-key="matthew" title="Click to sort by Matthew\'s rate">Run 3 · Matthew<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">20k-char extraction</span><span class="sort-arrow" data-arrow-for="matthew"></span></div>'+
+    '<div class="sortable" data-sort-key="yuva" title="Click to sort by Yuva\'s rate">Run 4 · Yuva<br><span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9.5px;">8k-char extraction</span><span class="sort-arrow" data-arrow-for="yuva"></span></div>'+
     '<div class="cmp-consistency sortable" data-sort-key="top2Count" title="Click to sort by cross-run consistency">Consistency<span class="sort-arrow" data-arrow-for="top2Count"></span></div>';
 
   var cmpTable = document.getElementById('cmpTable');
@@ -848,9 +848,9 @@
         '<small>'+row.sub+'</small>'+
       '</div>'+
       runCell(row, row.elle) +
-      runCell(row, row.yuva) +
       runCell(row, row.akshay) +
       runCell(row, row.matthew) +
+      runCell(row, row.yuva) +
       '<div class="cmp-consistency">'+consistencyHtml+'</div>';
     return el;
   }
