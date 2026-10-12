@@ -398,7 +398,7 @@
       <p class="sub">Tests whether Gemini recommends Flight Centre three ways — from memory, live web search, and reading Flight Centre's own pages — across 19 real travel conversations, and compares how 9 page-structure variants perform.</p>
       <div class="meta-block">
         <div class="meta-row"><b>Model</b>&nbsp;gemini-3.5-flash-lite</div>
-        <div class="meta-row"><b>Last updated</b>&nbsp;30 Sep 2026</div>
+        <div class="meta-row"><b>Last updated</b>&nbsp;12 Oct 2026</div>
       </div>
     </div>
   </header>
@@ -406,7 +406,7 @@
   <div class="banner">
     <div class="icon">i</div>
     <div>
-      <p>The leaderboard below <b>compares Elle's, Yuva's, Akshay's and Matthew's runs side by side</b> rather than pooling them into one ranking — the same 19-conversation script re-run by different team members on separate accounts/environments, to check whether a result holds up across environments or is just noise from Gemini's own response randomness (see Limitations). Elle, Akshay and Matthew used a 20,000-character content-extraction depth; Yuva used the original 8,000-character depth. <b>V4 — Full + Tables</b> and <b>Site B — Full composite</b> place top-2 in 3 of the 4 runs — <b>Akshay's run is the outlier for both.</b> Since Matthew's run (also 20k-char) agrees with Elle and Yuva rather than Akshay, extraction depth doesn't explain the disagreement — it looks like a run-specific anomaly rather than a genuine reversal. Pooled totals (n=2844 combined) are shown per variant as supporting context, not the headline ranking.</p>
+      <p>The leaderboard below <b>compares Elle's, Yuva's, Akshay's and Matthew's runs side by side</b> rather than pooling them into one ranking — the same 19-conversation script re-run by different team members on separate accounts/environments, to check whether a result holds up across environments or is just noise from Gemini's own response randomness (see Limitations). Elle, Akshay and Matthew used a 20,000-character content-extraction depth; Yuva used the original 8,000-character depth. <b>V4 — Full + Tables</b> and <b>Site B — Full composite</b> place top-2 in 3 of the 4 runs — <b>Akshay's run places both lower.</b> That's not a one-off flip: across all three richest, multi-element variants (V2, Site B, V4), how often Gemini names Flight Centre explicitly forms the same order every time — Elle highest, Matthew and Yuva mid-range, Akshay lowest — while the single-element pages (Baseline, V1, P3–P5) show no such spread, and extraction depth doesn't explain it (Elle and Akshay both used 20k-char). Pooled totals (n=2844 combined) are shown per variant as supporting context, not the headline ranking.</p>
     </div>
   </div>
 
@@ -422,7 +422,7 @@
       <div class="signal-num num">97.6<small>%</small></div>
       <div class="signal-body">
         <div class="signal-title">The result that actually holds up</div>
-        <p>1132 of 1160 injected mentions (pooled across all 4 runs) lead with Flight&nbsp;Centre and frame it as a recommendation — versus organic baseline, where every mention scored “Listed” and none led. These turns only ever contain Flight&nbsp;Centre’s own page content, so there’s no competitor present to be named instead — this measures how decisively Gemini uses the injected content, not a head-to-head win. It still holds up run by run in a way the variant ranking below does not (96.3% in Elle’s, 97.5% in Yuva’s, 98.8% in Akshay’s, 98.2% in Matthew’s).</p>
+        <p>1132 of 1160 injected mentions (pooled across all 4 runs) name Flight&nbsp;Centre first in the response (97.6%), and 1142 of 1160 (98.4%) present it as a recommendation rather than a passing mention — versus organic baseline, where every mention scored “Listed” and none led or recommended. These turns only ever contain Flight&nbsp;Centre’s own page content, so there’s no competitor present to be named instead — this measures how decisively Gemini uses the injected content, not a head-to-head win. The named-first figure holds up run by run in a way the variant ranking below does not (96.3% in Elle’s, 97.5% in Yuva’s, 98.8% in Akshay’s, 98.2% in Matthew’s).</p>
       </div>
     </div>
   </section>
@@ -439,8 +439,8 @@
         <div class="card-hint">Mention rate by journey stage — baseline recall vs. once Flight Centre's content is injected</div>
         <div class="stage-chart" id="stageChart"></div>
         <div class="legend">
-          <span><i style="background:var(--slate)"></i>V1 — Baseline (recall only)</span>
-          <span><i style="background:var(--accent)"></i>V3 — Content-injected</span>
+          <span><i style="background:var(--slate)"></i>Recall — Baseline</span>
+          <span><i style="background:var(--accent)"></i>Page Reading — Content-injected</span>
         </div>
       </div>
       <div class="card">
@@ -452,14 +452,36 @@
   </section>
 
   <!-- ===================== POOLED SIGNIFICANCE ===================== -->
-  <section id="sec-pooled" class="section-group-start">
+  <section id="sec-leaderboard" class="section-group-start">
     <div class="group-eyebrow">Part 2 — The Evidence</div>
+    <div class="section-head">
+      <h2>Run-by-run consistency</h2>
+      <span class="hint">Excl. Book turn · same 9 variants, compared run by run — the detail behind the pooled verdict below ·
+        <a href="mockups/" target="_blank" rel="noopener">browse all 9 pages ↗</a>
+      </span>
+    </div>
+    <div class="card">
+      <div class="sig-note">
+        <span>⚠</span>
+        <span id="sigNoteText"></span>
+      </div>
+      <div class="cmp-table-wrap">
+        <div class="cmp-table" id="cmpTable">
+          <div class="cmp-row head" id="cmpHead"></div>
+        </div>
+      </div>
+      <p class="cmp-footnote">“Top-2” = finished in the top two variants (excl. baseline) on that run's own excl.-Book rate. A pooled Fisher's exact test combining all 4 runs is shown in “Pooled significance” below — this table instead checks whether that pooled result actually holds up run by run, since no single run alone is reliable at n=60/variant.</p>
+    </div>
+  </section>
+
+  <!-- ===================== POOLED SIGNIFICANCE ===================== -->
+  <section id="sec-pooled">
     <div class="section-head">
       <h2>Pooled significance</h2>
       <span class="hint">Pooled across all 4 runs · Fisher's exact test on combined counts (n=240 per variant, excl. Book turn)</span>
     </div>
     <div class="card">
-      <p style="margin:0 0 16px; font-size:13px; line-height:1.6; color:var(--text-lo);">Each individual run only has n=60 per variant — too small for any one run's p-value to be trusted on its own (see <a href="#sec-leaderboard">run-by-run consistency below</a>). Pooling all 4 runs together gives n=240 per variant and real statistical power, which is why this is the more defensible basis for a recommendation, not the run-by-run table.</p>
+      <p style="margin:0 0 16px; font-size:13px; line-height:1.6; color:var(--text-lo);">Each individual run only has n=60 per variant — too small for any one run's p-value to be trusted on its own (see <a href="#sec-leaderboard">run-by-run consistency above</a>). Pooling all 4 runs together gives n=240 per variant and more statistical power, but as the table above shows, several variants swing sharply between runs — so these pooled figures are shown as supporting context alongside the run-by-run picture, not in place of it.</p>
       <div class="sig-note">
         <span>⚠</span>
         <span id="poolNoteText"></span>
@@ -474,27 +496,7 @@
     </div>
   </section>
 
-  <!-- ===================== SITE COMPARISON ===================== -->
-  <section id="sec-leaderboard">
-    <div class="section-head">
-      <h2>Run-by-run consistency</h2>
-      <span class="hint">Excl. Book turn · same 9 variants, compared run by run — the detail behind the pooled verdict above ·
-        <a href="mockups/" target="_blank" rel="noopener">browse all 9 pages ↗</a>
-      </span>
-    </div>
-    <div class="card">
-      <div class="sig-note">
-        <span>⚠</span>
-        <span id="sigNoteText"></span>
-      </div>
-      <div class="cmp-table-wrap">
-        <div class="cmp-table" id="cmpTable">
-          <div class="cmp-row head" id="cmpHead"></div>
-        </div>
-      </div>
-      <p class="cmp-footnote">“Top-2” = finished in the top two variants (excl. baseline) on that run's own excl.-Book rate. A pooled Fisher's exact test combining all 4 runs is shown in “Pooled significance” above — this table instead checks whether that pooled result actually holds up run by run, since no single run alone is reliable at n=60/variant.</p>
-    </div>
-  </section>
+  <!-- ===================== SITE COMPARISON (moved above) ===================== -->
 
   <!-- ===================== FOLLOW-UP: P2 REWORDING ===================== -->
   <section id="sec-followup">
@@ -574,8 +576,8 @@
     <li><a href="#sec-headline" data-target="sec-headline">Headline results</a></li>
     <li><a href="#sec-journey" data-target="sec-journey">Journey stage &amp; competitors</a></li>
     <li class="anchor-group">Part 2 — The Evidence</li>
-    <li><a href="#sec-pooled" data-target="sec-pooled">Pooled significance</a></li>
     <li><a href="#sec-leaderboard" data-target="sec-leaderboard">Run-by-run consistency</a></li>
+    <li><a href="#sec-pooled" data-target="sec-pooled">Pooled significance</a></li>
     <li><a href="#sec-followup" data-target="sec-followup">Follow-up: P2 rewording</a></li>
     <li class="anchor-group">Part 3 — What It Means</li>
     <li><a href="#sec-synthesis" data-target="sec-synthesis">Key takeaways</a></li>
@@ -592,24 +594,25 @@
 
   // ---------- DATA ----------
   var versions = [
-    { name:'V1 — Baseline', sub:'No tools, no injected content — run via the Gemini API (Python), independent of browser session.', rate:5.1, sample:'4 / 79 turns', convos:'3 of 19 conversations', note:'16 of 19 conversations never mention Flight Centre at all.' },
-    { name:'V2 — Search-Grounded', sub:'Live Google Search grounding, full 19-conversation set — run manually, turn by turn.', rate:7.6, sample:'6 / 79 turns', convos:'4 of 19 conversations', note:'1 new conversation beyond V1 (Q18) — still narrow, and every mention is “Listed,” never “Recommended.”' },
-    { name:'V3 — Content-Injected', sub:'Flight Centre’s ProCat mockup content pasted into turn 1, all 4 runs — run via the Gemini API (Python), independent of browser session.', rate:40.8, sample:'1160 / 2844 turns', convos:'9 site variants × 19 conversations × 4 runs', note:'Gemini leads with Flight Centre in 97.6% of these mentions, not just a passing reference — though these turns never contain competitor content for Gemini to rank against, so this is a content-uptake signal, not a competitive win. <b style="color:var(--accent)">By run: Elle 49.4%, Yuva 39.8%, Akshay 34.6%, Matthew 39.4%</b> — reach is consistent across runs; it’s which site variant wins that swings hard, with Akshay’s run the one consistent outlier (see comparison table below).' }
+    { name:'Recall — Baseline', sub:'No tools, no injected content — run via the Gemini API (Python), independent of browser session.', rate:5.1, sample:'4 / 79 turns', convos:'3 of 19 conversations', note:'16 of 19 conversations never mention Flight Centre at all.' },
+    { name:'Live Search — Search-Grounded', sub:'Live Google Search grounding, full 19-conversation set — run manually, turn by turn.', rate:7.6, sample:'6 / 79 turns', convos:'4 of 19 conversations', note:'1 new conversation beyond Recall (Q18) — still narrow, and every mention is “Listed,” never “Recommended.”' },
+    { name:'Page Reading — Content-Injected', sub:'Flight Centre’s ProCat mockup content pasted into turn 1, all 4 runs — run via the Gemini API (Python), independent of browser session.', rate:22.3, sample:'482 / 2160 turns', convos:'9 site variants × 19 conversations × 4 runs', note:'Gemini names Flight Centre first in 97.6% of these mentions and frames it as a recommendation in 98.4% — not just a passing reference — though these turns never contain competitor content for Gemini to rank against, so this is a content-uptake signal, not a competitive win. <b style="color:var(--accent)">By run (incl. Book): Elle 49.4%, Yuva 39.8%, Akshay 34.6%, Matthew 39.4%</b> — reach is consistent across runs; it’s which site variant wins that swings hard — Akshay’s run names Flight Centre explicitly least often on the three richest variants, the low end of a gradient that runs Elle highest to Akshay lowest (see comparison table below).' }
   ];
 
   var stages = ['Dream','Plan','Engage','Book','Pre-trip'];
   var baselineStage = [0,0,10.5,10.5,0];
-  var injectedStage = [16.4,8.8,35.7,98.8,40.7];
+  var injectedStage = [17.0,11.7,33.8,99.1,50.9];
 
   var competitors = [
     { name:'Booking.com', val:18 },
     { name:'Expedia', val:17 },
+    { name:'Airbnb', val:17 },
     { name:'Google Flights', val:11 },
     { name:'Skyscanner', val:9 },
     { name:'Flight Centre', val:4, fc:true }
   ];
 
-  // Rates below EXCLUDE the Book turn (98.8% mention rate across every variant incl. baseline —
+  // Rates below EXCLUDE the Book turn (99.1% mention rate across every variant incl. baseline —
   // it saturates and inflates all nine equally, hiding the real comparison). Full-inclusive rates
   // are shown as a secondary figure inside each run's cell. "Top-2" flags whether a variant placed
   // in the top two (excl. baseline) on THAT run's own rate. `pooled` combines all runs so far into
@@ -636,18 +639,18 @@
       elle:{rate:40.0, rank:'4', full:54.4, p:'0.015', top2:false}, yuva:{rate:13.3, rank:'9', full:34.2, p:'0.799', top2:false},
       akshay:{rate:6.7, rank:'7', full:29.1, p:'0.239', top2:false}, matthew:{rate:18.3, rank:'5', full:38.0, p:'1.000', top2:false},
       pooled:{rate:19.6, full:38.9, p:'0.5555', delta:2.5, beatBaseline:1, sigCount:1, verdict:'weak'}, top2Count:0 },
-    { name:'Site B — Full composite', sub:'Schema + FAQ + stats — no tables, no citations', url:MOCKUP_BASE+'04_site_b_full.html',
+    { name:'Site B — Full composite', sub:'Schema + FAQ + stats + quick-answer summaries + trust bar + promo tags + SEO title/meta — no tables, no citations', url:MOCKUP_BASE+'04_site_b_full.html',
       elle:{rate:53.3, rank:'2', full:64.6, p:'0.001', top2:true}, yuva:{rate:28.3, rank:'1', full:45.6, p:'0.189', top2:true},
       akshay:{rate:5.0, rank:'8', full:27.8, p:'0.125', top2:false}, matthew:{rate:23.3, rank:'2', full:41.8, p:'0.654', top2:true},
       pooled:{rate:27.5, full:44.9, p:'0.0083', delta:10.4, beatBaseline:3, sigCount:1, verdict:'strong'}, top2Count:3 },
-    { name:'V4 — Full + Tables', sub:'Schema + FAQ + stats + tables — no citations', url:MOCKUP_BASE+'05_v4_full_tables.html',
+    { name:'V4 — Full + Tables', sub:'Schema + FAQ + stats + tables + quick-answer summaries + trust bar + promo tags + SEO title/meta — no citations', url:MOCKUP_BASE+'05_v4_full_tables.html',
       elle:{rate:63.3, rank:'1', full:72.2, p:'0.001', top2:true}, yuva:{rate:28.3, rank:'1', full:45.6, p:'0.189', top2:true},
       akshay:{rate:1.7, rank:'9', full:25.3, p:'0.017', top2:false}, matthew:{rate:30.0, rank:'1', full:46.8, p:'0.200', top2:true},
       pooled:{rate:30.8, full:47.5, p:'0.0006', delta:13.7, beatBaseline:3, sigCount:2, sigNote:'1 positive, 1 negative', verdict:'strong'}, top2Count:3 },
     { name:'P2 — FAQ only', sub:'FAQ section only — no schema markup', url:MOCKUP_BASE+'06_p2_faq_only.html',
       elle:{rate:46.7, rank:'3', full:59.5, p:'0.002', top2:false}, yuva:{rate:18.3, rank:'6', full:38.0, p:'1.000', top2:false},
       akshay:{rate:45.0, rank:'1', full:58.2, p:'0.001', top2:true}, matthew:{rate:15.0, rank:'8', full:35.4, p:'0.807', top2:false},
-      pooled:{rate:31.2, full:47.8, p:'0.0004', delta:14.1, beatBaseline:3, sigCount:2, sigNote:'both positive', verdict:'lowEffort'}, top2Count:1 },
+      pooled:{rate:31.2, full:47.8, p:'0.0004', delta:14.2, beatBaseline:3, sigCount:2, sigNote:'both positive', verdict:'lowEffort'}, top2Count:1 },
     { name:'P3 — Statistics only', sub:'Embedded stat callouts only — no schema, no FAQ', url:MOCKUP_BASE+'07_p3_stats_only.html',
       elle:{rate:20.0, rank:'6', full:39.2, p:'1.000', top2:false}, yuva:{rate:23.3, rank:'3', full:41.8, p:'0.494', top2:false},
       akshay:{rate:18.3, rank:'2', full:38.0, p:'0.807', top2:true}, matthew:{rate:15.0, rank:'8', full:35.4, p:'0.807', top2:false},
@@ -662,7 +665,7 @@
       pooled:{rate:20.8, full:39.9, p:'0.3516', delta:3.7, beatBaseline:3, sigCount:0, verdict:'weak'}, top2Count:1 }
   ];
 
-  var SIG_NOTE_HTML = '<b>V4 — Full + Tables and Site B — Full composite place top-2 in 3 of 4 runs; Akshay’s is the outlier for both.</b> Elle, Akshay and Matthew used 20,000-character extraction; Yuva used 8,000. Matthew’s run (also 20k) agrees with Elle and Yuva, not Akshay — so extraction depth doesn’t explain the disagreement, and it looks like a run-specific anomaly rather than a real effect of page structure (not yet confirmed). <b>P2 — FAQ only</b> looked strong on Elle and Akshay alone (46.7% vs. 45.0%), but Matthew’s 15.0% (rank 8 of 9) breaks that pattern. See “Pooled significance” above for the full Fisher’s exact breakdown (n=240/variant), where P2 still earns its “best low-effort pick” billing. All 4 planned runs are complete.';
+  var SIG_NOTE_HTML = '<b>V4 — Full + Tables and Site B — Full composite place top-2 in 3 of 4 runs; Akshay’s run places both lower.</b> Elle, Akshay and Matthew used 20,000-character extraction; Yuva used 8,000 — but extraction depth doesn’t explain it, since Elle and Akshay share the same depth and sit at opposite ends. Across V2, Site B and V4 (the three variants combining multiple structured elements), explicit Flight Centre naming forms the same order in every one — Elle highest, Matthew and Yuva mid-range, Akshay lowest — while the single-element pages show no such spread. <b>P2 — FAQ only</b> looked strong on Elle and Akshay alone (46.7% vs. 45.0%), but Matthew’s 15.0% (rank 8 of 9) breaks that pattern — driven by extraction depth and FAQ placement, not the naming gradient above (see Limitations). See “Pooled significance” below for the full Fisher’s exact breakdown (n=240/variant), where P2 still earns its “best low-effort pick” billing. All 4 planned runs are complete.';
   
   // Headline findings — numbered, each tagged with a confidence pill (reuses the same
   // .pill classes as elsewhere on the page: go=strong, warn=moderate, slate=directional/
@@ -672,11 +675,11 @@
     { conf:'go', confLabel:'Confidence: strong',
       text:'<b>The visibility gap is real.</b> With no help, Gemini named Flight Centre in just 4 of 79 baseline turns (5.1%) — only in Q01, Q02 and Q08 — and live search grounding barely moves it (7.6%, adding just Q18). Every one of those mentions scored “Listed,” never a recommendation, and 15 of 19 conversations never surface Flight Centre under either method. The gap is in being considered as a candidate at all, not in page structure.' },
     { conf:'go', confLabel:'Confidence: strong',
-      text:'<b>Once Gemini reads Flight Centre’s own content, it uses it — and leads with it.</b> The mention rate jumps to 40.8%, and 97.6% of those mentions frame Flight Centre as a recommendation, not a passing reference. Worth reading carefully: these turns only ever contain Flight Centre’s own page content, so there’s no competitor present to be ranked against — this shows how decisively Gemini adopts the injected content, not a competitive win. It still holds run by run across all 4 people who tested it (96.3–98.8%), making it the most consistent result in the study.' },
+      text:'<b>Once Gemini reads Flight Centre’s own content, it uses it — and leads with it.</b> The mention rate reaches 22.3% (excl. Book turn), and of those mentions, 97.6% name Flight Centre first and 98.4% frame it as a recommendation, not a passing reference. Worth reading carefully: these turns only ever contain Flight Centre’s own page content, so there’s no competitor present to be ranked against — this shows how decisively Gemini adopts the injected content, not a competitive win. The named-first figure holds run by run across all 4 people who tested it (96.3–98.8%), making it the most consistent result in the study.' },
     { conf:'warn', confLabel:'Confidence: moderate',
-      text:'<b>V4 and Site B are the strongest page designs.</b> Full + Tables (V4) and Full composite (Site B) place top-2 in 3 of 4 runs, pooling to 30.8% and 27.5% against 17.1% baseline. Akshay’s run is the shared outlier for both, and extraction depth doesn’t explain it (see “Pooled significance” and “Run-by-run consistency” above) — worth a data-quality check before calling either fully settled.' },
+      text:'<b>V4 and Site B are the strongest page designs.</b> Full + Tables (V4) and Full composite (Site B) place top-2 in 3 of 4 runs, pooling to 30.8% and 27.5% against 17.1% baseline. Akshay’s run places both lower, as part of a consistent naming gradient across the three richest variants (Elle highest, Akshay lowest) that extraction depth doesn’t explain (see “Pooled significance” and “Run-by-run consistency” above). All four raw transcripts check out with zero scoring errors, so this is a real difference in how each run’s Gemini responses are worded, not a data-quality issue.' },
     { conf:'warn', confLabel:'Confidence: moderate',
-      text:'<b>P2 — FAQ only is the best-evidenced low-effort technique.</b> Pooled across all 4 runs it beats baseline at 31.2% vs. 17.1% (p=0.0004) — stronger than Site B’s own pooled p-value — though that result is driven by only 2 of the 4 runs. Treat it as the strongest-evidenced single technique tested, not as proven, and validate with a further run before committing budget.' }
+      text:'<b>P2 — FAQ only is the best-evidenced low-effort technique.</b> Pooled across all 4 runs it beats baseline at 31.2% vs. 17.1% (p=0.0004) — stronger than Site B’s own pooled p-value — though that result is driven by 2 of the 3 runs that could actually test it. Yuva’s 8,000-character extraction cut off before the FAQ section (it starts ∼11,500 characters into the page), so her run never saw the FAQ content and isn’t a null result. Treat it as the strongest-evidenced single technique tested, not as proven, and validate with a further run before committing budget.' }
   ];
 
   // Recommendations — same 8 items as before, regrouped into "do this now" vs. "needs
@@ -685,17 +688,17 @@
   var recoGroups = [
     { title: 'Do first — low cost, already evidenced', items: [
       { conf:'go', confLabel:'Confidence: strong',
-        text:'Lead any external summary with the content-uptake finding, not a “beats competitors” framing — once Flight Centre’s content is available, Gemini leads with it in 97.6% of mentions, vs. organic mentions always scoring “Listed.” Be upfront that these turns never contain competitor content, so this shows the content works once read, not that it won a comparison.' },
+        text:'Lead any external summary with the content-uptake finding, not a “beats competitors” framing — once Flight Centre’s content is available, Gemini names it first in 97.6% of mentions and recommends it in 98.4%, vs. organic mentions always scoring “Listed.” Be upfront that these turns never contain competitor content, so this shows the content works once read, not that it won a comparison.' },
       { conf:'go', confLabel:'Confidence: strong',
-        text:'Report V3 rates with the Book turn excluded, with p-values attached — Book is saturated at 98.8% across every variant including baseline, so it inflates all nine equally and hides the real comparison.' },
+        text:'Report Page Reading rates with the Book turn excluded, with p-values attached — Book is saturated at 99.1% across every variant including baseline, so it inflates all nine equally and hides the real comparison.' },
       { conf:'go', confLabel:'Confidence: strong',
         text:'Treat visibility/presence as the higher-priority problem over structure — Flight Centre isn’t a candidate at all for 16 of 19 scenarios, which no page-level restructuring fixes.' },
       { conf:'warn', confLabel:'Confidence: moderate',
-        text:'For the lowest-effort next experiment, pilot P2 — FAQ only. Pooled across all 4 runs it beats baseline at p=0.0004 — stronger than Site B’s p=0.0083 — even though only 2 of 4 runs drove that result. Treat it as the strongest-evidenced single technique, not as proven, and validate with a 5th run before committing budget.' }
+        text:'For the lowest-effort next experiment, pilot P2 — FAQ only. Pooled across all 4 runs it beats baseline at p=0.0004 — stronger than Site B’s p=0.0083 — even though only 2 of the 3 runs that could test it drove that result (Yuva’s 8k-char extraction never reached the FAQ section). Treat it as the strongest-evidenced single technique, not as proven, and validate with a 5th run before committing budget.' }
     ]},
     { title: 'Worth doing — needs more resources', items: [
       { conf:'warn', confLabel:'Confidence: moderate',
-        text:'V4 — Full + Tables and Site B — Full composite remain the strongest overall candidates (highest pooled rates, top-2 in 3 of 4 runs) — but treat Akshay’s run as needing a manual data-quality check before calling either fully settled; it’s the one run where both variants collapse, and extraction depth doesn’t explain it.' },
+        text:'V4 — Full + Tables and Site B — Full composite remain the strongest overall candidates (highest pooled rates, top-2 in 3 of 4 runs) — but Akshay’s run rates both lower, as part of a consistent Elle-high-to-Akshay-low naming gradient across the three richest variants — confirmed as a real wording difference, not a scoring error, and not explained by extraction depth. Worth noting as a limit of relying on any single run, not a reason to discount V4 or Site B.' },
       { conf:'warn', confLabel:'Confidence: moderate',
         text:'Have a human spot-check a sample of the LLM-judge rubric scores before reporting externally — the Flight Centre-mention finding is a reliable deterministic match, but the 0–3 rubric scores carry self-scoring bias risk.' }
     ]},
@@ -703,29 +706,29 @@
       { conf:'slate', confLabel:'Not recommended',
         text:'Drop P4 — Tables only from further consideration — it pools below baseline (15.8% vs. 17.1%) and beat baseline in only 1 of 4 runs.' },
       { conf:'slate', confLabel:'Status update',
-        text:'V2 (search-grounded) is now extended to the full 19-conversation set — closes INP-156. Update any earlier materials still citing the 5-conversation subset or the “same 3 conversations, every method” framing.' }
+        text:'Live Search (search-grounded) is now extended to the full 19-conversation set. Update any earlier materials still citing the 5-conversation subset or the “same 3 conversations, every method” framing.' }
     ]}
   ];
 
   var limitations = [
-    '<b>Gemini only</b> — chosen for free access via a Google API key; GPT-4, Claude and Perplexity were out of scope for automated testing. An OpenAI credit was made available, but there wasn’t enough time to build and run an equivalent harness on another platform. These findings describe Gemini’s behaviour specifically, not AI search behaviour in general.',
-    '<b>V3 never injects competitor content</b> — each turn pastes only Flight Centre’s own mockup page, so when Flight Centre is mentioned it is almost always “first” and “Recommended” by construction, not because it won a comparison. Read the V3 ranking-position and recommendation-rate figures as a content-uptake signal, not a competitive one.',
-    '<b>V3 mockup sites are prototypes, not Flight Centre’s live site</b> — product listings are drawn from a real ProCat sample, but star ratings and review counts are randomised placeholder numbers (a deliberate choice, so the test isolates the effect of each optimisation technique rather than the effect of rating/review values), and the page interface itself was built by the team for this study. Results describe how Gemini responds to this content, not guaranteed behaviour on Flight Centre’s actual site.',
-    '<b>V2 collected manually</b> — run turn by turn in Google AI Studio using the same scoring rubric as V1/V3, but applied by hand rather than through the automated harness, so repeat-run consistency wasn’t tested the way it was for V1.',
-    '<b>Two extraction depths across these runs</b> — Elle, Akshay and Matthew used a 20,000-character extraction limit; Yuva used the original 8,000-character limit. Noted for completeness, not as an explanation for Akshay’s outlier result — Matthew’s run shares Akshay’s depth and still agrees with Elle and Yuva (see next point).',
+    '<b>Gemini only</b> — chosen for free access via a Google API key; GPT-4, Claude and Perplexity were out of scope for automated testing. Flight Centre offered to fund API credits for testing other assistants, but the team didn’t take this up due to time constraints. These findings describe Gemini’s behaviour specifically, not AI search behaviour in general.',
+    '<b>Page Reading never injects competitor content</b> — each turn pastes only Flight Centre’s own mockup page, so when Flight Centre is mentioned it is almost always “first” and “Recommended” by construction, not because it won a comparison. Read the Page Reading ranking-position and recommendation-rate figures as a content-uptake signal, not a competitive one.',
+    '<b>Page Reading mockup sites are prototypes, not Flight Centre’s live site</b> — product listings are drawn from a real ProCat sample, but star ratings and review counts are randomised placeholder numbers (a deliberate choice, so the test isolates the effect of each optimisation technique rather than the effect of rating/review values), and the page interface itself was built by the team for this study. Results describe how Gemini responds to this content, not guaranteed behaviour on Flight Centre’s actual site.',
+    '<b>Live Search collected manually</b> — run turn by turn in Google AI Studio using the same scoring rubric as Recall/Page Reading, but applied by hand rather than through the automated harness, so repeat-run consistency wasn’t tested the way it was for Recall.',
+    '<b>Two extraction depths across these runs</b> — Elle, Akshay and Matthew used a 20,000-character extraction limit; Yuva used the original 8,000-character limit. Noted for completeness, not as an explanation for the naming gradient described next — Elle and Akshay share the same 20k depth and sit at opposite ends of it.',
     '<b>Pooling can hide run-to-run disagreement</b> — several variants swing 25+ points between individual runs (see “Run-by-run consistency” above), which a single pooled Fisher’s-exact test doesn’t surface. Pooled p-values are shown as supporting context, not the primary evidence.',
-    '<b>Akshay’s run is an unexplained outlier</b> — V4 — Full + Tables and Site B — Full composite both collapse in Akshay’s run while agreeing closely across Elle, Yuva and Matthew (see comparison table above). This looks like a run-specific data-quality issue rather than a genuine structural effect — worth a manual review, not yet confirmed. No variant places top-2 in all 4 completed runs.',
-    '<b>Run-to-run noise</b> — baseline was run twice this sprint on identical scripted turns; 2 of 4 Flight Centre mentions’ ranking position changed between runs purely from the model generating a different organic answer the second time. This is exactly why the V3 runs are compared individually rather than trusted as one pooled figure.',
+    '<b>Explicit brand-naming forms a consistent gradient on the richest variants</b> — across V2 — Schema + FAQ, Site B — Full composite and V4 — Full + Tables, how often Gemini names “Flight Centre” explicitly (rather than just using the injected price or package detail) falls in the same order every time: Elle highest (54–72%), Matthew and Yuva mid-range (26–47%), Akshay lowest (25–29%). The single-element pages (Baseline, V1, P3–P5) show no such spread, and extraction depth doesn’t explain it (Elle and Akshay both used 20k-char). We checked all four raw transcripts for scoring errors and fetch failures and found none — Akshay’s responses do use the injected price and package details, just more often without naming the brand. The likely driver is response-wording style interacting with denser injected content, but the root cause isn’t confirmed. No variant places top-2 in all 4 completed runs.',
+    '<b>Run-to-run noise</b> — baseline was run twice this sprint on identical scripted turns; 2 of 4 Flight Centre mentions’ ranking position changed between runs purely from the model generating a different organic answer the second time. This is exactly why the Page Reading runs are compared individually rather than trusted as one pooled figure.',
     '<b>Scripted turns</b> — conversation wording is fixed rather than adapted to the AI’s actual prior answer, a Query Set design limitation shared by all three versions.'
   ];
 
   var files = [
-    ['V1 — Baseline', 'multi_turn_query19_results.csv', '79'],
-    ['V2 — Search-Grounded (manual)', 'Manual_Grounded_Test_Template_scored.xlsx', '79'],
-    ['V3 — Content-Injected (ProCat, Run 1 — Elle, 20k-char extraction, 16 Sep 2026)', 'elle_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 2 — Akshay, 20k-char extraction, 16 Sep 2026)', 'akshay_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 3 — Matthew, 20k-char extraction, 15–17 Sep 2026)', 'matthew_multi_turn_query19_injection_results_procat.csv', '711'],
-    ['V3 — Content-Injected (ProCat, Run 4 — Yuva, 8k-char extraction, 15 Sep 2026)', 'yuva_multi_turn_query19_injection_results_procat.csv', '711']
+    ['Recall — Baseline', 'multi_turn_query19_results.csv', '79'],
+    ['Live Search — Search-Grounded (manual)', 'Manual_Grounded_Test_Template_scored.xlsx', '79'],
+    ['Page Reading — Content-Injected (ProCat, Run 1 — Elle, 20k-char extraction, 16 Sep 2026)', 'elle_multi_turn_query19_injection_results_procat.csv', '711'],
+    ['Page Reading — Content-Injected (ProCat, Run 2 — Akshay, 20k-char extraction, 16 Sep 2026)', 'akshay_multi_turn_query19_injection_results_procat.csv', '711'],
+    ['Page Reading — Content-Injected (ProCat, Run 3 — Matthew, 20k-char extraction, 15–17 Sep 2026)', 'matthew_multi_turn_query19_injection_results_procat.csv', '711'],
+    ['Page Reading — Content-Injected (ProCat, Run 4 — Yuva, 8k-char extraction, 15 Sep 2026)', 'yuva_multi_turn_query19_injection_results_procat.csv', '711']
   ];
   var pendingFiles = [];
 
@@ -736,7 +739,7 @@
     row.className = 'board-row';
     row.innerHTML =
       '<div><div class="v-name">'+v.name+'</div><div class="v-sub">'+v.sub+'</div></div>'+
-      '<div class="v-rate num" data-target="'+v.rate+'">0<small>%</small></div>'+
+      '<div class="v-rate num" data-target="'+v.rate+'">'+v.rate.toFixed(1)+'<small>%</small></div>'+
       '<div class="v-detail"><span class="k">'+v.sample+'</span> · '+v.convos+'<br>'+v.note+'</div>';
     board.appendChild(row);
   });
@@ -772,8 +775,8 @@
   });
 
   // ---------- RENDER: pooled significance table ----------
-  var POOL_NOTE_HTML = '<b>P2 — FAQ only is the best-evidenced low-effort technique.</b> Pooled across all 4 runs it beats baseline by +14.1pp (31.2% vs 17.1%) at p=0.0004 — a stronger pooled result than Site B (p=0.0083) and close to V4’s (p=0.0006) — and it’s cheaper to implement than either (FAQ copywriting only, no schema pipeline or fabricated review data). <b>Caveat:</b> that significance is driven by only 2 of the 4 runs (Elle, Akshay — both individually p&lt;0.01); Yuva and Matthew showed no effect at all. Treat this as the strongest-evidenced single technique across a combined 240-turn sample, not as proven.';
-  var POOL_FOOTNOTE_HTML = '<b>V4 — Full + Tables</b> and <b>Site B — Full composite</b> remain the strongest overall ceiling if Flight Centre pursues the full bundle (highest pooled rates and significance) — at higher implementation effort than P2. <b>P4 — Tables only</b> pools below baseline (15.8% vs 17.1%) and beat baseline in only 1 of 4 runs — not recommended for further consideration. “Beat baseline” = pooled rate exceeded baseline in that many of the 4 individual runs. See “Run-by-run consistency” below for the per-run detail behind every number here.';
+  var POOL_NOTE_HTML = '<b>P2 — FAQ only is the best-evidenced low-effort technique.</b> Pooled across all 4 runs it beats baseline by +14.2pp (31.2% vs 17.1%) at p=0.0004 — a stronger pooled result than Site B (p=0.0083) and close to V4’s (p=0.0006) — and it’s cheaper to implement than either (FAQ copywriting only, no schema pipeline or fabricated review data). <b>Caveat:</b> that significance is driven by 2 of the 3 runs that could actually test it (Elle, Akshay — both individually p&lt;0.01). Matthew’s full 20k-char extraction saw the FAQ and still showed no effect (15.0%); Yuva’s 8,000-character extraction cut off before the FAQ section (∼11,500 characters into the page), so her run never tested FAQ at all and isn’t a null result. Treat this as the strongest-evidenced single technique across a combined 240-turn sample, not as proven.';
+  var POOL_FOOTNOTE_HTML = '<b>V4 — Full + Tables</b> and <b>Site B — Full composite</b> remain the strongest overall ceiling if Flight Centre pursues the full bundle (highest pooled rates and significance) — at higher implementation effort than P2. <b>P4 — Tables only</b> pools below baseline (15.8% vs 17.1%) and beat baseline in only 1 of 4 runs — not recommended for further consideration. “Beat baseline” = pooled rate exceeded baseline in that many of the 4 individual runs. See “Run-by-run consistency” above for the per-run detail behind every number here.';
   document.getElementById('poolNoteText').innerHTML = POOL_NOTE_HTML;
   document.getElementById('poolFootnote').innerHTML = POOL_FOOTNOTE_HTML;
 
