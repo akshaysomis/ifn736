@@ -60,7 +60,7 @@ Each page carries the same 39 Flight Centre products from the ProCat export. Eac
 | Schema + FAQ | `03_v2_schema_faq.html` | Schema and an FAQ section |
 | Full composite | `04_site_b_full.html` | Schema and FAQ, plus a summary, a one-line quick answer per product, a trust bar, star class, review scores, promotion tags, and an SEO title and description |
 | Full composite + tables | `05_v4_full_tables.html` | Everything in Full composite, plus comparison and policy tables |
-| FAQ only | `06_p2_faq_only.html` | An FAQ section on booking, trust, cancellations and insurance |
+| FAQ only | `06_p2_faq_only.html` | An FAQ section on package types, the loyalty program, why to book with Flight Centre, stopovers, guided tours, ski and snow, cruises and expeditions, and how to book |
 | Reworded FAQ | `06_p2_faq_only_v3_restructured.html` | The FAQ only page rewritten in customers' own words, with the same topics and facts |
 | Statistics only | `07_p3_stats_only.html` | A statistics bar: 40+ years, 2,000+ tours a month, 200+ countries, ATAS accredited |
 | Tables only | `08_p4_tables_only.html` | Comparison tables |
